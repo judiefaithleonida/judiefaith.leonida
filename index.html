@@ -1,0 +1,405 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Judie Faith Leonida · Virtual Assistant & Social Media Manager</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500&display=swap" rel="stylesheet"/>
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --navy: #1a2340;
+    --slate: #2e3d5f;
+    --accent: #4a7fcb;
+    --accent-light: #eaf1fb;
+    --text: #1a2340;
+    --muted: #6b7a99;
+    --bg: #f8f8f6;
+    --white: #ffffff;
+    --border: rgba(26,35,64,0.1);
+    --green: #2d7a4f;
+    --green-bg: #edf7f0;
+  }
+  body { font-family: 'DM Sans', sans-serif; background: var(--bg); color: var(--text); line-height: 1.6; font-size: 16px; }
+
+  nav {
+    position: sticky; top: 0; z-index: 100;
+    background: rgba(248,248,246,0.94);
+    backdrop-filter: blur(8px);
+    border-bottom: 1px solid var(--border);
+    padding: 0 2rem;
+    display: flex; align-items: center; justify-content: space-between;
+    height: 60px;
+  }
+  .nav-logo { font-family: 'DM Serif Display', serif; font-size: 1.1rem; color: var(--navy); }
+  .nav-links { display: flex; gap: 2rem; list-style: none; }
+  .nav-links a { text-decoration: none; font-size: 0.8rem; font-weight: 400; color: var(--muted); letter-spacing: 0.05em; text-transform: uppercase; transition: color 0.2s; }
+  .nav-links a:hover { color: var(--navy); }
+
+  .hero {
+    min-height: 90vh;
+    display: grid; grid-template-columns: 1fr 1fr;
+    align-items: center;
+    max-width: 1200px; margin: 0 auto;
+    padding: 4rem 2rem; gap: 4rem;
+  }
+  .hero-tag { display: inline-block; background: var(--accent-light); color: var(--accent); font-size: 0.75rem; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase; padding: 6px 14px; border-radius: 100px; margin-bottom: 1.5rem; }
+  .hero h1 { font-family: 'DM Serif Display', serif; font-size: clamp(2.2rem, 4.5vw, 3.4rem); line-height: 1.1; color: var(--navy); margin-bottom: 1.25rem; }
+  .hero h1 em { font-style: italic; color: var(--accent); }
+  .hero-desc { font-size: 1rem; color: var(--muted); max-width: 480px; margin-bottom: 2rem; line-height: 1.8; font-weight: 300; }
+  .hero-cta { display: flex; gap: 1rem; flex-wrap: wrap; }
+  .btn-primary { background: var(--navy); color: var(--white); padding: 12px 28px; border-radius: 6px; text-decoration: none; font-size: 0.875rem; font-weight: 500; transition: background 0.2s; }
+  .btn-primary:hover { background: var(--slate); }
+  .btn-outline { border: 1px solid var(--border); color: var(--navy); padding: 12px 28px; border-radius: 6px; text-decoration: none; font-size: 0.875rem; font-weight: 500; transition: border-color 0.2s, background 0.2s; }
+  .btn-outline:hover { border-color: var(--navy); background: rgba(26,35,64,0.04); }
+
+  .profile-card { background: var(--white); border: 1px solid var(--border); border-radius: 20px; padding: 2rem; width: 300px; box-shadow: 0 12px 48px rgba(26,35,64,0.08); }
+  .avatar-ring { width: 80px; height: 80px; border-radius: 50%; background: linear-gradient(135deg, #4a7fcb 0%, #1a2340 100%); display: flex; align-items: center; justify-content: center; font-family: 'DM Serif Display', serif; font-size: 1.6rem; color: var(--white); margin: 0 auto 1rem; }
+  .profile-card h3 { text-align: center; font-family: 'DM Serif Display', serif; font-size: 1.1rem; color: var(--navy); margin-bottom: 0.2rem; }
+  .profile-card .role { text-align: center; font-size: 0.75rem; color: var(--accent); font-weight: 500; letter-spacing: 0.06em; text-transform: uppercase; margin-bottom: 1.5rem; }
+  .stat-row { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 0.5rem; margin-bottom: 1.25rem; }
+  .stat-box { text-align: center; background: var(--bg); border-radius: 10px; padding: 10px 6px; }
+  .stat-box strong { display: block; font-size: 1.1rem; font-weight: 500; color: var(--navy); }
+  .stat-box span { font-size: 0.68rem; color: var(--muted); }
+  .availability { display: flex; align-items: center; gap: 8px; background: var(--green-bg); border-radius: 8px; padding: 10px 14px; font-size: 0.8rem; color: var(--green); font-weight: 500; }
+  .dot { width: 8px; height: 8px; border-radius: 50%; background: var(--green); animation: pulse 2s infinite; }
+  @keyframes pulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.4; } }
+
+  section { padding: 5rem 2rem; }
+  .container { max-width: 1100px; margin: 0 auto; }
+  .section-label { font-size: 0.72rem; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; color: var(--accent); margin-bottom: 0.75rem; }
+  .section-title { font-family: 'DM Serif Display', serif; font-size: clamp(1.7rem, 3vw, 2.3rem); color: var(--navy); margin-bottom: 1rem; line-height: 1.2; }
+  .section-sub { font-size: 0.95rem; color: var(--muted); max-width: 540px; line-height: 1.8; font-weight: 300; }
+
+  #services { background: var(--white); }
+  .services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(290px, 1fr)); gap: 1.25rem; margin-top: 3rem; }
+  .service-card { border: 1px solid var(--border); border-radius: 14px; padding: 1.6rem; background: var(--bg); transition: transform 0.2s, box-shadow 0.2s; }
+  .service-card:hover { transform: translateY(-3px); box-shadow: 0 12px 32px rgba(26,35,64,0.08); }
+  .service-icon { width: 42px; height: 42px; border-radius: 10px; background: var(--accent-light); display: flex; align-items: center; justify-content: center; font-size: 1.2rem; margin-bottom: 1rem; }
+  .service-card h3 { font-size: 0.95rem; font-weight: 500; color: var(--navy); margin-bottom: 0.5rem; }
+  .service-card p { font-size: 0.875rem; color: var(--muted); line-height: 1.7; font-weight: 300; }
+
+  #experience { background: var(--bg); }
+  .timeline { margin-top: 3rem; position: relative; }
+  .timeline::before { content: ''; position: absolute; left: 12px; top: 6px; bottom: 0; width: 1px; background: var(--border); }
+  .timeline-item { padding-left: 3rem; padding-bottom: 2.5rem; position: relative; }
+  .timeline-dot { position: absolute; left: 0; top: 4px; width: 25px; height: 25px; border-radius: 50%; background: var(--white); border: 2px solid var(--accent); display: flex; align-items: center; justify-content: center; }
+  .timeline-dot::after { content: ''; width: 8px; height: 8px; border-radius: 50%; background: var(--accent); }
+  .timeline-date { font-size: 0.75rem; font-weight: 500; color: var(--accent); letter-spacing: 0.05em; text-transform: uppercase; margin-bottom: 0.35rem; }
+  .timeline-item h3 { font-size: 1rem; font-weight: 500; color: var(--navy); margin-bottom: 0.15rem; }
+  .timeline-item .company { font-size: 0.85rem; color: var(--muted); margin-bottom: 0.75rem; }
+  .timeline-item ul { list-style: none; padding: 0; }
+  .timeline-item ul li { font-size: 0.875rem; color: var(--muted); font-weight: 300; padding: 3px 0 3px 1rem; position: relative; line-height: 1.65; }
+  .timeline-item ul li::before { content: '—'; position: absolute; left: 0; color: var(--border); font-size: 0.8rem; }
+
+  #tools { background: var(--navy); }
+  #tools .section-label { color: rgba(255,255,255,0.45); }
+  #tools .section-title { color: var(--white); }
+  #tools .section-sub { color: rgba(255,255,255,0.5); }
+  .tools-categories { margin-top: 2.5rem; display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 1.5rem; }
+  .tool-group h4 { font-size: 0.72rem; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase; color: rgba(255,255,255,0.4); margin-bottom: 0.75rem; }
+  .tool-pills { display: flex; flex-wrap: wrap; gap: 0.5rem; }
+  .tool-pill { background: rgba(255,255,255,0.07); border: 1px solid rgba(255,255,255,0.12); color: rgba(255,255,255,0.82); padding: 6px 14px; border-radius: 100px; font-size: 0.8rem; }
+
+  #education { background: var(--white); }
+  .edu-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.25rem; margin-top: 2.5rem; }
+  .edu-card { border: 1px solid var(--border); border-radius: 14px; padding: 1.5rem; background: var(--bg); }
+  .edu-badge { display: inline-block; background: var(--accent-light); color: var(--accent); font-size: 0.72rem; font-weight: 500; letter-spacing: 0.06em; text-transform: uppercase; padding: 4px 12px; border-radius: 100px; margin-bottom: 0.75rem; }
+  .edu-card h3 { font-size: 1rem; font-weight: 500; color: var(--navy); margin-bottom: 0.25rem; }
+  .edu-card span { font-size: 0.85rem; color: var(--muted); }
+
+  #contact { background: var(--bg); text-align: center; }
+  .contact-card { background: var(--white); border: 1px solid var(--border); border-radius: 20px; padding: 3rem 2rem; max-width: 580px; margin: 3rem auto 0; }
+  .contact-card h3 { font-family: 'DM Serif Display', serif; font-size: 1.5rem; color: var(--navy); margin-bottom: 0.75rem; }
+  .contact-card p { font-size: 0.9rem; color: var(--muted); margin-bottom: 2rem; font-weight: 300; line-height: 1.75; }
+  .contact-links { display: flex; justify-content: center; gap: 1rem; flex-wrap: wrap; }
+
+  footer { text-align: center; padding: 2rem; font-size: 0.78rem; color: var(--muted); border-top: 1px solid var(--border); }
+
+  @media (max-width: 768px) {
+    .hero { grid-template-columns: 1fr; text-align: center; padding: 3rem 1.25rem; }
+    .hero-visual { display: none; }
+    .hero-cta { justify-content: center; }
+    .hero-desc { margin: 0 auto 2rem; }
+    nav { padding: 0 1rem; }
+    .nav-links { display: none; }
+    section { padding: 3.5rem 1.25rem; }
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-logo">Judie Faith Leonida</div>
+  <ul class="nav-links">
+    <li><a href="#services">Services</a></li>
+    <li><a href="#experience">Experience</a></li>
+    <li><a href="#tools">Tools</a></li>
+    <li><a href="#education">Education</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+</nav>
+
+<!-- Hero -->
+<div class="hero">
+  <div class="hero-text">
+    <div class="hero-tag">Social Media Manager & Virtual Assistant · 3+ Years</div>
+    <h1>Results-driven support, <em>built around your brand.</em></h1>
+    <p class="hero-desc">
+      I'm Judie Faith — a social media manager, marketer, and admin professional with 3+ years of remote experience across healthcare, e-commerce, and service industries. I help businesses grow their digital presence, stay organized, and communicate with confidence.
+    </p>
+    <div class="hero-cta">
+      <a href="#contact" class="btn-primary">Work with me</a>
+      <a href="#services" class="btn-outline">See what I do</a>
+    </div>
+  </div>
+  <div class="hero-visual">
+    <div class="profile-card">
+      <div class="avatar-ring">JF</div>
+      <h3>Judie Faith C. Leonida</h3>
+      <div class="role">SMM · VA · Marketer</div>
+      <div class="stat-row">
+        <div class="stat-box"><strong>3+</strong><span>Yrs exp.</span></div>
+        <div class="stat-box"><strong>4</strong><span>Companies</span></div>
+        <div class="stat-box"><strong>LPT</strong><span>Licensed</span></div>
+      </div>
+      <div class="availability">
+        <div class="dot"></div>
+        Open to new opportunities
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Services -->
+<section id="services">
+  <div class="container">
+    <div class="section-label">What I offer</div>
+    <h2 class="section-title">Services I excel at</h2>
+    <p class="section-sub">From social media strategy to admin operations — I bring focus, reliability, and real results to every role I take on.</p>
+    <div class="services-grid">
+      <div class="service-card">
+        <div class="service-icon">📱</div>
+        <h3>Social Media Management</h3>
+        <p>Content creation, campaign management, scheduling, community engagement, and performance analytics across all major platforms.</p>
+      </div>
+      <div class="service-card">
+        <div class="service-icon">📧</div>
+        <h3>Email & SMS Marketing</h3>
+        <p>Designing and launching targeted email and SMS campaigns, managing outreach sequences, and tracking campaign performance.</p>
+      </div>
+      <div class="service-card">
+        <div class="service-icon">📊</div>
+        <h3>Analytics & Strategy</h3>
+        <p>Analyzing social media metrics and campaign data to refine strategies, identify growth opportunities, and improve ROI.</p>
+      </div>
+      <div class="service-card">
+        <div class="service-icon">🎨</div>
+        <h3>Graphic Design</h3>
+        <p>Creating on-brand graphics, marketing materials, and presentations using Canva — ready for social, web, and print.</p>
+      </div>
+      <div class="service-card">
+        <div class="service-icon">📅</div>
+        <h3>Admin & Operations</h3>
+        <p>Scheduling, documentation, records management, compliance tracking, and client communications — keeping things running smoothly.</p>
+      </div>
+      <div class="service-card">
+        <div class="service-icon">🌐</div>
+        <h3>Website & SEO Support</h3>
+        <p>Updating and managing websites on GoDaddy and WordPress, with SEO-focused content edits to drive organic traffic.</p>
+      </div>
+      <div class="service-card">
+        <div class="service-icon">🤝</div>
+        <h3>Recruitment Support</h3>
+        <p>Posting job ads, screening candidates, coordinating interviews, verifying credentials, and managing compliance documentation.</p>
+      </div>
+      <div class="service-card">
+        <div class="service-icon">📞</div>
+        <h3>Customer & Client Relations</h3>
+        <p>Cold and warm calling, inbound support, scheduling, and follow-ups — building strong relationships between clients and teams.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Experience -->
+<section id="experience">
+  <div class="container">
+    <div class="section-label">Work history</div>
+    <h2 class="section-title">Where I've made an impact</h2>
+    <p class="section-sub">Each role has sharpened my ability to wear multiple hats — always delivering across social, admin, and marketing responsibilities.</p>
+    <div class="timeline">
+
+      <div class="timeline-item">
+        <div class="timeline-dot"></div>
+        <div class="timeline-date">2025 – 2026</div>
+        <h3>Social Media Manager & Admin</h3>
+        <div class="company">Acupuncture Solution · Melbourne, FL</div>
+        <ul>
+          <li>Managed social media accounts with content and campaigns that boosted engagement, reach, and brand visibility</li>
+          <li>Designed and launched email and SMS marketing campaigns alongside SEO-optimized website updates</li>
+          <li>Analyzed social media metrics to continuously refine strategy and improve performance</li>
+          <li>Coordinated client communications, follow-ups, and documentation for smooth daily operations</li>
+        </ul>
+      </div>
+
+      <div class="timeline-item">
+        <div class="timeline-dot"></div>
+        <div class="timeline-date">2024 – 2025</div>
+        <h3>Marketer, Admin & Recruiter</h3>
+        <div class="company">Sheila's Angels in Home Care · Houston, TX</div>
+        <ul>
+          <li>Led recruitment on Indeed — from writing ads and screening candidates to coordinating interviews</li>
+          <li>Handled email outreach and ongoing communication with caregivers and staff</li>
+          <li>Reviewed and maintained caregiver credentials to ensure compliance accuracy</li>
+          <li>Created internal marketing materials to support recruitment and staff engagement</li>
+        </ul>
+      </div>
+
+      <div class="timeline-item">
+        <div class="timeline-dot"></div>
+        <div class="timeline-date">2023 – 2024</div>
+        <h3>Marketer, Front Desk & Admin</h3>
+        <div class="company">Assisting Hands Fremont · Newark, CA</div>
+        <ul>
+          <li>Managed phone communications between clients and caregivers to ensure clear scheduling</li>
+          <li>Performed cold and warm calling to generate leads and strengthen client relationships</li>
+          <li>Created graphics and managed social media content to grow online presence</li>
+          <li>Assisted with email campaigns, follow-ups, and promotional materials</li>
+        </ul>
+      </div>
+
+      <div class="timeline-item">
+        <div class="timeline-dot"></div>
+        <div class="timeline-date">2023</div>
+        <h3>Sales Associate</h3>
+        <div class="company">T & S Group of Businesses · Brooklyn, NY</div>
+        <ul>
+          <li>Assisted customers with product and service information, ensuring positive experiences</li>
+          <li>Processed billing transactions and handled administrative tasks with accuracy</li>
+          <li>Handled customer follow-ups and correspondence to resolve inquiries promptly</li>
+        </ul>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- Tools -->
+<section id="tools">
+  <div class="container">
+    <div class="section-label">Tech stack</div>
+    <h2 class="section-title">Tools I use every day</h2>
+    <p class="section-sub">Proficient across a wide range of platforms — ready to plug into your existing workflow from day one.</p>
+    <div class="tools-categories">
+      <div class="tool-group">
+        <h4>Productivity</h4>
+        <div class="tool-pills">
+          <div class="tool-pill">Google Workspace</div>
+          <div class="tool-pill">Microsoft Office Suite</div>
+        </div>
+      </div>
+      <div class="tool-group">
+        <h4>Design</h4>
+        <div class="tool-pills">
+          <div class="tool-pill">Canva</div>
+        </div>
+      </div>
+      <div class="tool-group">
+        <h4>CRM & Marketing</h4>
+        <div class="tool-pills">
+          <div class="tool-pill">GoHighLevel</div>
+          <div class="tool-pill">Apollo</div>
+        </div>
+      </div>
+      <div class="tool-group">
+        <h4>Project Management</h4>
+        <div class="tool-pills">
+          <div class="tool-pill">Asana</div>
+          <div class="tool-pill">ClickUp</div>
+          <div class="tool-pill">Connecteam</div>
+          <div class="tool-pill">SmartSuite</div>
+        </div>
+      </div>
+      <div class="tool-group">
+        <h4>EHR & Scheduling</h4>
+        <div class="tool-pills">
+          <div class="tool-pill">AxisCare</div>
+          <div class="tool-pill">WellSky</div>
+          <div class="tool-pill">Square</div>
+          <div class="tool-pill">Noterro</div>
+        </div>
+      </div>
+      <div class="tool-group">
+        <h4>Website</h4>
+        <div class="tool-pills">
+          <div class="tool-pill">WordPress</div>
+          <div class="tool-pill">GoDaddy</div>
+        </div>
+      </div>
+      <div class="tool-group">
+        <h4>Billing & Legal</h4>
+        <div class="tool-pills">
+          <div class="tool-pill">Mindful Billing</div>
+          <div class="tool-pill">Clio</div>
+          <div class="tool-pill">Lawmatics</div>
+          <div class="tool-pill">MetLife</div>
+        </div>
+      </div>
+      <div class="tool-group">
+        <h4>Phone & Communication</h4>
+        <div class="tool-pills">
+          <div class="tool-pill">OneTalk</div>
+          <div class="tool-pill">RingCentral</div>
+          <div class="tool-pill">Nextiva</div>
+          <div class="tool-pill">Phone.com</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Education -->
+<section id="education">
+  <div class="container">
+    <div class="section-label">Education & credentials</div>
+    <h2 class="section-title">Academic background</h2>
+    <p class="section-sub">A strong academic foundation combined with a professional license — bringing both discipline and communication expertise to every role.</p>
+    <div class="edu-grid">
+      <div class="edu-card">
+        <div class="edu-badge">License · 2025</div>
+        <h3>Licensed Professional Teacher (LPT)</h3>
+        <span>Professional Regulation Commission</span>
+      </div>
+      <div class="edu-card">
+        <div class="edu-badge">Degree · 2020 – 2024</div>
+        <h3>Bachelor of Secondary Education</h3>
+        <span>Major in English</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Contact -->
+<section id="contact">
+  <div class="container">
+    <div class="section-label">Let's connect</div>
+    <h2 class="section-title">Ready to work together?</h2>
+    <p class="section-sub" style="margin: 0 auto;">I'm open to remote VA, social media management, and marketing roles. Let's talk about how I can support your business.</p>
+    <div class="contact-card">
+      <h3>Get in touch</h3>
+      <p>Send me a message and I'll get back to you within 24 hours. I'm based in the Philippines and available for remote work globally.</p>
+      <div class="contact-links">
+        <a href="mailto:judiefaithleonida@gmail.com" class="btn-primary">judiefaithleonida@gmail.com</a>
+        <a href="tel:+639770523278" class="btn-outline">+63 977 052 3278</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <p>© 2025 Judie Faith C. Leonida · Social Media Manager & Virtual Assistant · Philippines</p>
+</footer>
+
+</body>
+</html>
